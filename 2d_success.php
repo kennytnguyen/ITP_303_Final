@@ -21,8 +21,8 @@
 								<span class="glyphicon glyphicon-ok"></span>
 						</div>
 						<!--/.icon-->
-						<h1>Completed Registration</h1>
-						<p>Return to Homepage</p>
+						<h1>Success!</h1>
+						<p>Return to Profile Info</p>
 						<button type="button" id="ok">Ok</button>
 				</div>
 				<!--/.success-->
@@ -33,7 +33,7 @@
 
  <script type="text/javascript">
     document.getElementById("ok").onclick = function () {
-		location.href = 'index.php';
+        location.href = '2c_update_info.php';
     };
 </script>
 

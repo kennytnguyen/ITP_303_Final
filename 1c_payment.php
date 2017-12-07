@@ -1,13 +1,7 @@
 <?php
 
 require_once 'php/init.php';
-
-echo "Session ID:";
-echo $SESSION['id'];
-
-
-$userdata = getUserDataByUserId(8);
-var_dump($userdata);
+$userdata = getUserDataByUserId(($_SESSION['id']));
 ?>
 
 
@@ -183,6 +177,12 @@ on <= small devices and 4/12 page width on >= medium devices -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js'></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js'></script>
   <script  src="js/payment.js"></script>
+
+  <script type="text/javascript">
+    document.getElementById("finish").onclick = function () {
+        location.href = '1d_cardReg.php';
+    };
+</script>
 
 
 </body>

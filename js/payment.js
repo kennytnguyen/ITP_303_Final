@@ -110,7 +110,7 @@ paymentFormReady = function() {
         return false;
     }
 }
-
+/*
 $form.find('[type=submit]').prop('disabled', true);
 var readyInterval = setInterval(function() {
     if (paymentFormReady()) {
@@ -119,4 +119,4 @@ var readyInterval = setInterval(function() {
         location.href = '1d_cardReg.php';
     }
 }, 250);
-
+*/

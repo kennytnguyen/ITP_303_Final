@@ -15,25 +15,28 @@
 <body>
   <div class="background"></div>
 <div class="container">
+		<!--/.row-->
 		<div class="row">
-				<div class="modalbox success col-sm-8 col-md-6 col-lg-5 center animate">
+				<div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">
 						<div class="icon">
-								<span class="glyphicon glyphicon-ok"></span>
+								<span class="glyphicon glyphicon-thumbs-down"></span>
 						</div>
 						<!--/.icon-->
-						<h1>Completed Registration</h1>
-						<p>Return to Homepage</p>
-						<button type="button" id="ok">Ok</button>
+						<h1>Oh no!</h1>
+						<p>Oops! Something went wrong,
+								<br> you should try again.</p>
+						<button type="button" id="back">Try again</button>
 				</div>
 				<!--/.success-->
 		</div>
+		<!--/.row-->
 </div>
 <!--/.container-->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
- <script type="text/javascript">
-    document.getElementById("ok").onclick = function () {
-		location.href = 'index.php';
+<script type="text/javascript">
+    document.getElementById("back").onclick = function () {
+        location.href = '2c_update_info.php';
     };
 </script>
 

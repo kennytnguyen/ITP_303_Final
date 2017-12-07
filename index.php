@@ -1,3 +1,9 @@
+<?php
+require_once 'php/init.php';
+logout();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>

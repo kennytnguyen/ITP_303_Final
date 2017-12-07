@@ -50,7 +50,7 @@ function registerUser() {
 	$newPassword = makePassword($password, $salt);
 
 	if($newPassword) {
-		$sql = "INSERT INTO user (email, password, rfid, full_name, pin, phone) VALUES ('$email', '$password', '$rfid', '$full_name', '$pin', '$phone')";
+		$sql = "INSERT INTO user (email, password, rfid, full_name, pin, phone, salt) VALUES ('$email', '$password', '$rfid', '$full_name', '$pin', '$phone', '$salt')";
 		$query = $connect->query($sql);
 		if($query === TRUE) {
 			return true;
@@ -76,16 +76,16 @@ function addCard() {
 
 	global $connect;
 
-	$email = $_POST['email'];
 	$card_num = $_POST['cardNumber'];
 	$exp_month = $_POST['cardExpiryMo'];
 	$exp_year = $_POST['cardExpiryYr'];
 	$cvc = $_POST['cardCVC'];
+	$id_num = $_SESSION['id'];
 
-
-	//$full_name = $_POST['full_name'];
-
-	$sql = "INSERT INTO user ( card_num, exp_month, exp_year, cvc) VALUES ('$card_num', '$exp_month', '$exp_year', '$cvc') WHERE email = $email";
+	$sql = "
+	INSERT INTO user (card_num, exp_month, exp_year, cvc) 
+	VALUES ('$card_num', '$exp_month', '$exp_year', '$cvc') 
+	WHERE id = '$id_num'";
 
 	$query = $connect->query($sql);
 	if($query === TRUE) {
@@ -116,14 +116,33 @@ function userdata($email) {
 	// close the database connection
 }
 
+function updateInfo() {
+
+	global $connect;
+
+  	$pin = $_POST['pin'];
+  	$phone = $_POST['phone'];
+  	$id = $_SESSION['id'];
+
+	$sql = "UPDATE user SET phone = '$phone', pin = '$pin' WHERE id = '$id'";
+	$query = $connect->query($sql);
+	if($query === TRUE) {
+		return true;
+	} else {
+		return false;
+	}
+
+	$connect->close();
+	// close the database connection
+}
+
 function login($email, $password) {
 	global $connect;
 	$userdata = userdata($email);
 
-  	echo "$email, $password, $pin";
 	if($userdata) {
 		$makePassword = makePassword($password, $userdata['salt']);
-		$sql = "SELECT * FROM user WHERE email = '$email' AND password = '$makePassword'";
+		$sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
 		$query = $connect->query($sql);
 
 		if($query->num_rows == 1) {
@@ -162,20 +181,7 @@ function users_exists_by_email($id) {
 	$connect->close();
 }
 
-function updateInfo($id) {
-	global $connect;
 
-	$full_name = $_POST['full_name'];
-	$phone = $_POST['phone'];
-
-	$sql = "UPDATE user SET full_name = '$full_name', phone = '$phone' WHERE email = $email";
-	$query = $connect->query($sql);
-	if($query === TRUE) {
-		return true;
-	} else {
-		return false;
-	}
-}
 
 function updateCard($id) {
 	global $connect;

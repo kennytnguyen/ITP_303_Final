@@ -10,15 +10,14 @@ if(logged_in() === TRUE) {
 if($_POST) {
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $pin = $_POST['pin'];
 
   if(userExists($email) == TRUE) {
-    $login = login($email, $password, $pin);
+    $login = login($email, $password);
     if($login) {
-      $userdata = userdata($email);
 
+      $userdata = userdata($email);
       $_SESSION['id'] = $userdata['id'];
-      
+
       header('location: 2c_update_info.php');
       exit();
         
