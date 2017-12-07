@@ -21,8 +21,8 @@
 								<span class="glyphicon glyphicon-ok"></span>
 						</div>
 						<!--/.icon-->
-						<h1>Success!</h1>
-						<p>Proceed to Verify Driver's ID</p>
+						<h1>Completed Registration</h1>
+						<p>Return to Homepage</p>
 						<button type="button" id="ok">Ok</button>
 				</div>
 				<!--/.success-->
@@ -33,7 +33,7 @@
 
  <script type="text/javascript">
     document.getElementById("ok").onclick = function () {
-        location.href = '1b_idVerify.php';
+        location.href = 'index.php';
     };
 </script>
 

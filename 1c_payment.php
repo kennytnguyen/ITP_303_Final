@@ -1,8 +1,21 @@
+<?php
+
+require_once 'php/init.php';
+
+echo "Session ID:";
+echo $SESSION['id'];
+
+
+$userdata = getUserDataByUserId(8);
+var_dump($userdata);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Simple Payment Form use Bootstrap</title>
+  <title>Enter Payment Info</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
@@ -44,6 +57,40 @@ on <= small devices and 4/12 page width on >= medium devices -->
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
+              <label for="emailAddress">EMAIL ADDRESS</label>
+                <div class="input-group">
+                  <input 
+                    type="text"
+                    class="form-control"
+                    name="email"
+                    value=<?php echo $userdata['email'] ?> 
+                    required autofocus 
+                  />
+                </div>
+              </div>                            
+            </div>
+          </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="emailAddress">FULL NAME</label>
+                <div class="input-group">
+                  <input 
+                    type="text"
+                    class="form-control"
+                    name="full_name"
+                    value=<?php echo $userdata['full_name'] ?>
+                    required autofocus 
+                  />
+                </div>
+              </div>                            
+            </div>
+          </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
               <label for="cardNumber">CARD NUMBER</label>
                 <div class="input-group">
                   <input 
@@ -61,21 +108,36 @@ on <= small devices and 4/12 page width on >= medium devices -->
           </div>
 
         <div class="row">
-          <div class="col-xs-7 col-md-7">
+          <div class="col-xs-4 col-md-4">
             <div class="form-group">
-              <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+              <label for="cardExpiry"><span class="hidden-xs">EXP </span><span class="visible-xs-inline">EXP</span> MONTH</label>
                 <input 
                   type="tel" 
                   class="form-control" 
-                  name="cardExpiry"
-                  placeholder="MM / YY"
+                  name="cardExpiryMo"
+                  placeholder="MM"
                   autocomplete="cc-exp"
                   required 
                 />
             </div>
           </div>
-        
-        <div class="col-xs-5 col-md-5 pull-right">
+
+        <div class="row">
+          <div class="col-xs-4 col-md-4">
+            <div class="form-group">
+              <label for="cardExpiry"><span class="hidden-xs">EXP</span><span class="visible-xs-inline">EXP</span> YEAR</label>
+                <input 
+                  type="tel" 
+                  class="form-control" 
+                  name="cardExpiryYr"
+                  placeholder="YYYY"
+                  autocomplete="cc-exp"
+                  required 
+                />
+            </div>
+          </div>
+
+        <div class="col-xs-3 col-md-3">
           <div class="form-group">
             <label for="cardCVC">CV CODE</label>
               <input 
@@ -92,7 +154,7 @@ on <= small devices and 4/12 page width on >= medium devices -->
 
         <div class="row">
           <div class="col-xs-12">
-            <button class="btn btn-success btn-lg btn-block" type="submit">Finish</button>
+            <button class="btn btn-success btn-lg btn-block" type="submit" id="finish">Finish</button>
           </div>
         </div>
 
@@ -121,6 +183,7 @@ on <= small devices and 4/12 page width on >= medium devices -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js'></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js'></script>
   <script  src="js/payment.js"></script>
+
 
 </body>
 </html>

@@ -31,7 +31,6 @@
       <form class="login-form" action="2_login.php" method="POST">
         <input type="text" name="email" placeholder="email address" required/>
         <input type="password" name="password" placeholder="password" required/>
-        <input type="text" name="pin" placeholder="1234" maxlength="4" required/>
         <button>login</button>
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>

@@ -15,25 +15,28 @@
 <body>
   <div class="background"></div>
 <div class="container">
+		<!--/.row-->
 		<div class="row">
-				<div class="modalbox success col-sm-8 col-md-6 col-lg-5 center animate">
+				<div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">
 						<div class="icon">
-								<span class="glyphicon glyphicon-ok"></span>
+								<span class="glyphicon glyphicon-thumbs-down"></span>
 						</div>
 						<!--/.icon-->
-						<h1>Success!</h1>
-						<p>Proceed to Verify Driver's ID</p>
-						<button type="button" id="ok">Ok</button>
+						<h1>Oh no!</h1>
+						<p>Email Account Exists or RFID Already Registered
+								<br></p>
+						<button type="button" id="back">Try again</button>
 				</div>
 				<!--/.success-->
 		</div>
+		<!--/.row-->
 </div>
 <!--/.container-->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
- <script type="text/javascript">
-    document.getElementById("ok").onclick = function () {
-        location.href = '1b_idVerify.php';
+<script type="text/javascript">
+    document.getElementById("back").onclick = function () {
+        location.href = 'index.php';
     };
 </script>
 

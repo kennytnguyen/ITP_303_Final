@@ -12,12 +12,13 @@ if($_POST) {
   $password = $_POST['password'];
   $pin = $_POST['pin'];
 
-
-  if(userExists($username) == TRUE) {
-    $login = login($username, $password);
+  if(userExists($email) == TRUE) {
+    $login = login($email, $password, $pin);
     if($login) {
       $userdata = userdata($email);
 
+      $_SESSION['id'] = $userdata['id'];
+      
       header('location: 2c_update_info.php');
       exit();
         

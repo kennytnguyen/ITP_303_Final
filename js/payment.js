@@ -1,4 +1,5 @@
-var $form = $('#payment-form');
+
+var $form = $('1c_payment.php');
 $form.on('submit', payWithStripe);
 
 /* If you're using Stripe for payments */
@@ -8,7 +9,7 @@ function payWithStripe(e) {
     /* Visual feedback */
     $form.find('[type=submit]').html('Validating <i class="fa fa-spinner fa-pulse"></i>');
 
-    var PublishableKey = 'pk_test_b1qXXwATmiaA1VDJ1mOVVO1p'; // Replace with your API publishable key
+    var PublishableKey = 'pk_test_nPasN1YyiD4g0uKuvCXDmTba'; // Replace with your API publishable key
     Stripe.setPublishableKey(PublishableKey);
     
     /* Create token */
@@ -78,7 +79,7 @@ validator = $form.validate({
     rules: {
         cardNumber: {
             required: true,
-            cardNumber: true            
+            cardNumber: true 
         },
         cardExpiry: {
             required: true,
@@ -115,6 +116,7 @@ var readyInterval = setInterval(function() {
     if (paymentFormReady()) {
         $form.find('[type=submit]').prop('disabled', false);
         clearInterval(readyInterval);
+        location.href = '1d_cardReg.php';
     }
 }, 250);
 
