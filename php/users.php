@@ -71,21 +71,27 @@ function makePassword($password, $salt) {
 	return hash('sha256', $password.$salt);
 }
 
-
 function addCard() {
 
 	global $connect;
 
-	$card_num = $_POST['cardNumber'];
-	$exp_month = $_POST['cardExpiryMo'];
-	$exp_year = $_POST['cardExpiryYr'];
-	$cvc = $_POST['cardCVC'];
-	$id_num = $_SESSION['id'];
+	$card_num = $_POST['card_num'];
+	$exp_month = $_POST['exp_month'];
+	$exp_year = $_POST['exp_year'];
+	$cvc = $_POST['cvc'];
+  	$id = $_SESSION['id'];
 
-	$sql = "
-	INSERT INTO user (card_num, exp_month, exp_year, cvc) 
-	VALUES ('$card_num', '$exp_month', '$exp_year', '$cvc') 
-	WHERE id = '$id_num'";
+	//$sql = "
+	//INSERT INTO user (card_num, exp_month, exp_year, cvc) 
+	//VALUES ('$card_num', '$exp_month', '$exp_year', '$cvc') 
+	//WHERE id = '$id'";
+
+
+	$sql = "UPDATE user SET card_num = '$card_num',
+		exp_month = '$exp_month',
+		exp_year = '$exp_year',
+		cvc = '$cvc'
+		WHERE id = '$id'";
 
 	$query = $connect->query($sql);
 	if($query === TRUE) {

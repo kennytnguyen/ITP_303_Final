@@ -47,7 +47,7 @@ on <= small devices and 4/12 page width on >= medium devices -->
         </div>
       <div class="panel-body">
 
-      <form role="form" id="payment-form">
+      <form role="form" id="payment-form" action="1d_cardReg.php" method="POST">
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
@@ -90,7 +90,7 @@ on <= small devices and 4/12 page width on >= medium devices -->
                   <input 
                     type="tel"
                     class="form-control"
-                    name="cardNumber"
+                    name="card_num"
                     placeholder="Valid Card Number"
                     autocomplete="cc-number"
                     required autofocus 
@@ -108,7 +108,7 @@ on <= small devices and 4/12 page width on >= medium devices -->
                 <input 
                   type="tel" 
                   class="form-control" 
-                  name="cardExpiryMo"
+                  name="exp_month"
                   placeholder="MM"
                   autocomplete="cc-exp"
                   required 
@@ -123,7 +123,7 @@ on <= small devices and 4/12 page width on >= medium devices -->
                 <input 
                   type="tel" 
                   class="form-control" 
-                  name="cardExpiryYr"
+                  name="exp_year"
                   placeholder="YYYY"
                   autocomplete="cc-exp"
                   required 
@@ -137,7 +137,7 @@ on <= small devices and 4/12 page width on >= medium devices -->
               <input 
                 type="tel" 
                 class="form-control"
-                name="cardCVC"
+                name="cvc"
                 placeholder="CVC"
                 autocomplete="cc-csc"
                 required
@@ -176,13 +176,6 @@ on <= small devices and 4/12 page width on >= medium devices -->
 </body>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js'></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js'></script>
-  <script  src="js/payment.js"></script>
-
-  <script type="text/javascript">
-    document.getElementById("finish").onclick = function () {
-        location.href = '1d_cardReg.php';
-    };
-</script>
 
 
 </body>

@@ -3,16 +3,15 @@
 require_once 'php/init.php';
 
 // form is submitted
-  $card_num = $_POST['cardNumber'];
-  $exp_month = $_POST['cardExpiryMo'];
-  $exp_year = $_POST['cardExpiryYr'];
-  $cvc = $_POST['cardCVC'];
+  $card_num = $_POST['card_num'];
+  $exp_month = $_POST['exp_month'];
+  $exp_year = $_POST['exp_year'];
+  $cvc = $_POST['cvc'];
 
   if(addCard() === TRUE) {
     header('Location: 1d_completeReg.php');
-  } else 
-    echo ($_SESSION['id']);
-    //header('Location: 1d_completeReg.php');{
+  } else {
+    header('Location: 1d_invalidCard.php');
   }
 
 ?>

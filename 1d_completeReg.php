@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Success Modal with Animation</title>
+  <title>Completed Registration</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300|Montserrat' rel='stylesheet' type='text/css'>
   
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
@@ -23,8 +25,16 @@
 						<!--/.icon-->
 						<h1>Completed Registration</h1>
 						<p>Return to Homepage</p>
+						
+						<iframe src="https://open.spotify.com/embed/user/axcelaration/playlist/3UUB6N9Mg02mK2lTpuZJ39" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
 						<button type="button" id="ok">Ok</button>
+
 				</div>
+
+
+
+
 				<!--/.success-->
 		</div>
 </div>
