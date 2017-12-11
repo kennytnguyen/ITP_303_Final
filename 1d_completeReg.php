@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -24,7 +22,7 @@
 						</div>
 						<!--/.icon-->
 						<h1>Completed Registration</h1>
-						<p>Return to Homepage</p>
+						<p>Listen to Music!</p>
 						
 						<iframe src="https://open.spotify.com/embed/user/axcelaration/playlist/3UUB6N9Mg02mK2lTpuZJ39" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 
